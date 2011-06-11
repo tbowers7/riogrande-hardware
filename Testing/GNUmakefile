@@ -17,7 +17,7 @@ SOURCES = $(wildcard *.c)
 EXE = $(SOURCES:.c=)
 
 # make all / clean
-all : testport
+all : testport bob
 
 
 .PHONY: all clean
@@ -31,3 +31,6 @@ clean:
 
 testport: testport.c
 	$(CC) $(CFLAGS) -o testport testport.c -lm
+
+bob: bob.c
+	$(CC) $(CFLAGS) -o bob bob.c -lm
