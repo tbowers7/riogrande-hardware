@@ -17,14 +17,16 @@ SOURCES = $(wildcard *.c)
 EXE = $(SOURCES:.c=)
 
 # make all / clean
-all : testport bob
+all : testport bob clear_ports
 
 
-.PHONY: all clean
+.PHONY: all clean rmtl
 
 clean:
 	rm -rf $(EXE)
 
+rmtl:
+	rm -rf *~
 
 
 # Make Targets
@@ -34,3 +36,6 @@ testport: testport.c
 
 bob: bob.c
 	$(CC) $(CFLAGS) -o bob bob.c -lm
+
+clear_ports: clear_ports.c
+	$(CC) $(CFLAGS) -o clear_ports clear_ports.c -lm

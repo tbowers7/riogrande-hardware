@@ -1,5 +1,5 @@
-/******** bob.c ********/
-/* 11 June 2011
+/******** clear_ports.c ********/
+/* 12 June 2011
    
    EXECUTION POSSIBLE ONLY AS SUPERUSER!
 */
@@ -35,29 +35,20 @@ int main() {
   
   printf("\n");
   
-  // Infinite Loop
-  while(1 > 0){
-    
-    // Outer CONTROL loop
-    for(c=0x00; c <= 0x0f; c++){
-      outb(c^0x0b,port_add+2);
-      
-
-      // Inner DATA loop
-      for(a=0x00; a < 0xff; a++){
-	
-	outb(a,port_add);
-	
-	
-	
-	fputs("\r",stdout);
-	printf("Present values are c = %X    a = %2X        Total: %4d                          ",c,a,
-	       256*(int)c + (int)a);
-	fflush(stdout);
-	usleep(100000);
-      }
-    }
-    
-  }
+  c = 0x00;
+  a = 0x00;
+  
+  outb(c^0x0b,port_add+2);
+  outb(a,port_add);
+  
+  
+  
+  fputs("\r",stdout);
+  printf("Present values are c = %X    a = %2X        Total: %4d                          ",c,a,
+	 256*(int)c + (int)a);
+  fflush(stdout);
+  usleep(100000);
+  
+  printf("\n");
   return(0);
 }
