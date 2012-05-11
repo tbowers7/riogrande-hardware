@@ -17,7 +17,7 @@ SOURCES = $(wildcard *.c)
 EXE = $(SOURCES:.c=)
 
 # make all / clean
-all : testport bob clear_ports
+all : testport bob clear_ports turnlight
 
 
 .PHONY: all clean rmtl
@@ -39,3 +39,6 @@ bob: bob.c
 
 clear_ports: clear_ports.c
 	$(CC) $(CFLAGS) -o clear_ports clear_ports.c -lm
+
+turnlight: turnlight.c
+	$(CC) $(CFLAGS) -o turnlight turnlight.c -lm
